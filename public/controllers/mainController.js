@@ -1,6 +1,6 @@
 (function() {
   angular.module('reddit')
-  .controller('mainController', function($scope, Posts) {
+  .controller('mainController', function($scope, Posts, $window, localStorageService) {
 
     $scope.posts = Posts.posts;
     $scope.savePost = function(post) {
@@ -23,6 +23,14 @@
     $scope.addComment = function(post, comment) {
       Posts.addComment(post, comment);
       comment.text = '';
+    };
+
+    $scope.authData = localStorageService.get('authData');
+
+    $scope.logout = function() {
+      localStorageService.remove('authData');
+      console.log("Logout successful!");
+      $window.location.href = '/#/register';
     };
   });
 })();
