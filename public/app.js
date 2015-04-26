@@ -1,3 +1,3 @@
 (function() {
-	angular.module('reddit', []);
+	angular.module('reddit', ['ngRoute']);
 })();
