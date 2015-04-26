@@ -6,10 +6,10 @@
 
       $scope.test = 'foo';
       $scope.posts = posts;
-      posts.$add({
-        name: "TIFU by making reddit",
-        description: "^title....and this whole site",
-        url: "https://www.reddit.com"
-      });
+      // posts.$add({
+      //   name: "Extra post",
+      //   description: "another post and this",
+      //   url: "https://www.reddit.com"
+      // });
     });
 })();
