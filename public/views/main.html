@@ -11,11 +11,12 @@
     <label>Link</label>
     <input class="form-control" type="text" ng-model="post.url"/>
   </div>
-  <button class="btn btn-lg btn-success" ng-click="addPost(post)">
+  <button class="btn btn-lg btn-success" ng-click="savePost(post)">
     Add Post
   </button>
 </form>
 <div ng-repeat="post in posts">
   <h3><a ng-href="{{post.url}}"> {{post.title}} </a></h3>
   <p> {{post.desc}} </p>
+  <button ng-click="deletePost(post)">Delete</button>
 </div>

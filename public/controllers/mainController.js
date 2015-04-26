@@ -3,11 +3,14 @@
   .controller('mainController', function($scope, Posts) {
 
     $scope.posts = Posts.posts;
-    $scope.addPost = function(post) {
+    $scope.savePost = function(post) {
       Posts.savePost(post.title, post.desc, post.url);
       post.title = '';
       post.desc = '';
       post.url = '';
+    };
+    $scope.deletePost = function(post) {
+      Posts.deletePost(post);
     };
   });
 })();

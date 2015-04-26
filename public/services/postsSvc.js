@@ -14,7 +14,10 @@
         url: url
       });
     };
-
+    postsObj.deletePost = function(post) {
+      var deletedPost = new Firebase(FIREBASE_URI + '/' + post.$id);
+      deletedPost.remove();
+    };
     return postsObj;
   });
 })();
