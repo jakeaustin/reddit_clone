@@ -10,7 +10,7 @@
     postsObj.savePost = function(title, desc, url) {
       this.posts.$add({
         title: title,
-        description: desc,
+        desc: desc,
         url: url
       });
     };
