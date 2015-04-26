@@ -1,3 +1,7 @@
 (function() {
-	angular.module('reddit', ['ngRoute']);
+	angular.module('reddit', ['ngRoute',
+                            'firebase',
+                            'ngCookies',
+                            'LocalStorageModule'
+                            ]);
 })();
