@@ -15,3 +15,7 @@
     Add Post
   </button>
 </form>
+<div ng-repeat="post in posts">
+  <h3><a ng-href="{{post.url}}"> {{post.title}} </a></h3>
+  <p> {{post.desc}} </p>
+</div>
