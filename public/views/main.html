@@ -1,2 +1,11 @@
 <h1> MAIN </h1>
 <h2> {{test}} </h2>
+
+<form>
+  <input type="text" ng-model="post.name"/>
+  <input type="text" ng-model="post.desc"/>
+  <input type="text" ng-model="post.url"/>
+  <button class="btn btn-lg btn-success" ng-click="addPost(post)">
+    Add Post
+  </button>
+</form>
