@@ -11,7 +11,9 @@
       controller: 'mainController',
       templateUrl:'/views/main.html'
     })
-    .otherwise({redirectTo: '/'});
+    .otherwise({
+      redirectTo: '/'
+    });
   });
 
 })();
