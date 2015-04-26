@@ -19,8 +19,7 @@
       this.posts.$save(post);
     };
     postsObj.deletePost = function(post) {
-      var deletedPost = new Firebase(FIREBASE_URI + '/' + post.$id);
-      deletedPost.remove();
+      this.posts.$remove(post);
     };
 
     return postsObj;
