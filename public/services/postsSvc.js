@@ -11,13 +11,18 @@
       this.posts.$add({
         title: title,
         desc: desc,
-        url: url
+        url: url,
+        votes: 0
       });
+    };
+    postsObj.updatePost = function(post) {
+      this.posts.$save(post);
     };
     postsObj.deletePost = function(post) {
       var deletedPost = new Firebase(FIREBASE_URI + '/' + post.$id);
       deletedPost.remove();
     };
+
     return postsObj;
   });
 })();

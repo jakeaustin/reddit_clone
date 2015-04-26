@@ -15,7 +15,13 @@
     Add Post
   </button>
 </form>
+
+<br><hr><br>
+
 <div ng-repeat="post in posts">
+  <button class="btn btn-sm btn-warning" ng-click="upvotePost(post)">^</button>
+  <h4>{{post.votes}}</h4>
+  <button class="btn btn-sm btn-primary" ng-click="downvotePost(post)">v</button>
   <h3><a ng-href="{{post.url}}"> {{post.title}} </a></h3>
   <p> {{post.desc}} </p>
   <button ng-click="deletePost(post)">Delete</button>

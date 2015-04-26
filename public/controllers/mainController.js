@@ -12,5 +12,13 @@
     $scope.deletePost = function(post) {
       Posts.deletePost(post);
     };
+    $scope.upvotePost = function(post) {
+      post.votes += 1;
+      Posts.updatePost(post);
+    };
+    $scope.downvotePost = function(post) {
+      post.votes -= 1;
+      Posts.updatePost(post);
+    };
   });
 })();
