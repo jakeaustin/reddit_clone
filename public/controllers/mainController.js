@@ -20,5 +20,9 @@
       post.votes -= 1;
       Posts.updatePost(post);
     };
+    $scope.addComment = function(post, comment) {
+      Posts.addComment(post, comment);
+      comment.text = '';
+    };
   });
 })();

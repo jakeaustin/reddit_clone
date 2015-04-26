@@ -12,7 +12,8 @@
         title: title,
         desc: desc,
         url: url,
-        votes: 0
+        votes: 0,
+        comments: []
       });
     };
     postsObj.updatePost = function(post) {
@@ -20,6 +21,13 @@
     };
     postsObj.deletePost = function(post) {
       this.posts.$remove(post);
+    };
+    postsObj.addComment = function(post, comment) {
+      var ref = new Firebase(FIREBASE_URI + '/' + post.$id + '/comments');
+      var sync = $firebase(ref);
+
+      this.comments = sync.$asArray();
+      this.comments.$add({text: comment.text});
     };
 
     return postsObj;

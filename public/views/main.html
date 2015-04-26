@@ -18,11 +18,30 @@
 
 <br><hr><br>
 
-<div ng-repeat="post in posts">
+<div ng-repeat="post in posts" class="row">
+<div id="voteButtons" class="col-xs-2">
   <button class="btn btn-sm btn-warning" ng-click="upvotePost(post)">^</button>
   <h4>{{post.votes}}</h4>
   <button class="btn btn-sm btn-primary" ng-click="downvotePost(post)">v</button>
+  </div>
+  <div id="postBody" class="col-xs-9">
   <h3><a ng-href="{{post.url}}"> {{post.title}} </a></h3>
   <p> {{post.desc}} </p>
-  <button ng-click="deletePost(post)">Delete</button>
+  <button ng-click="deletePost(post)">Delete Post</button>
+  </div>
+  <div id="commentsBody">
+    <h4> Comments </h4>
+    <form role="form" class="col-xs-3">
+      <div class="form-group">
+        <input class="form-control" type="text" ng-model="comment.text"/>
+      </div>
+      <button class="btn btn-lg btn-success" ng-click="addComment(post, comment)">
+        Add Comment
+      </button>
+    </form>
+
+    <ul ng-repeat="comment in post.comments" class="col-xs-9">
+      <li>{{comment.text}}</li>
+    </ul>
+  </div>
 </div>
