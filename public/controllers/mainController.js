@@ -8,10 +8,13 @@
       $scope.posts = posts;
       $scope.addPost = function(post) {
         posts.$add({
-          name: post.name,
+          title: post.title,
           description: post.desc,
           url: post.url
         });
+        post.title = '';
+        post.desc = '';
+        post.url = '';
       };
     });
 })();
