@@ -17,6 +17,10 @@
       controller: 'registerController',
       templateUrl: '/views/register.html'
     })
+    .when('/post', {
+      controller: 'postController',
+      templateUrl: '/views/newPost.html'
+    })
     .otherwise({
       redirectTo: '/'
     });

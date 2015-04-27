@@ -1,0 +1,17 @@
+<form role="form">
+  <div class="form-group">
+    <label>Post Title</label>
+    <input class="form-control" type="text" ng-model="post.title"/>
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <input class="form-control" type="text" ng-model="post.desc"/>
+  </div>
+  <div class="form-group">
+    <label>Link</label>
+    <input class="form-control" type="text" ng-model="post.url"/>
+  </div>
+  <button class="btn btn-lg btn-success" ng-click="savePost(post)">
+    Add Post
+  </button>
+</form>

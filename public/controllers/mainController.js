@@ -3,12 +3,6 @@
   .controller('mainController', function($scope, Posts, $window, localStorageService) {
 
     $scope.posts = Posts.posts;
-    $scope.savePost = function(post) {
-      Posts.savePost(post.title, post.desc, post.url);
-      post.title = '';
-      post.desc = '';
-      post.url = '';
-    };
     $scope.deletePost = function(post) {
       Posts.deletePost(post);
     };
