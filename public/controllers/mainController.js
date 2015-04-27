@@ -2,6 +2,8 @@
   angular.module('reddit')
   .controller('mainController', function($scope, Posts, $window, localStorageService) {
 
+    $scope.authData = localStorageService.get('authData');
+
     $scope.posts = Posts.posts;
     $scope.deletePost = function(post) {
       Posts.deletePost(post);
@@ -18,9 +20,6 @@
       Posts.addComment(post, comment);
       comment.text = '';
     };
-
-    $scope.authData = localStorageService.get('authData');
-
     $scope.logout = function() {
       localStorageService.remove('authData');
       console.log("Logout successful!");
