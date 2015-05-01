@@ -20,6 +20,14 @@
       Posts.addComment(post, comment);
       comment.text = '';
     };
+    $scope.upvoteComment = function(post, comment) {
+      comment.votes += 1;
+      Posts.updatePost(post);
+    };
+    $scope.downvoteComment = function(post, comment) {
+      comment.votes -= 1;
+      Posts.updatePost(post);
+    };
     $scope.logout = function() {
       localStorageService.remove('authData');
       console.log("Logout successful!");

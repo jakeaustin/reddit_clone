@@ -35,9 +35,9 @@
       <div class="panel-heading">Username, time posted...</div>
         <div class="panel-body">
           <div id="voteButtons" class="col-xs-1">
-            <button class="btn btn-sm btn-warning" ng-click="upvoteComment(comment)">^</button>
+            <button class="btn btn-sm btn-warning" ng-click="upvoteComment(post, comment)">^</button>
             <h4>{{comment.votes}}</h4>
-            <button class="btn btn-sm btn-primary" ng-click="downvoteComment(comment)">v</button>
+            <button class="btn btn-sm btn-primary" ng-click="downvoteComment(post, comment)">v</button>
           </div>
           <h5 class="col-xs-10">{{comment.text}}</h3>
         </div>
