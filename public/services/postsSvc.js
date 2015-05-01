@@ -27,7 +27,7 @@
       var sync = $firebase(ref);
 
       this.comments = sync.$asArray();
-      this.comments.$add({text: comment.text});
+      this.comments.$add({text: comment.text, votes: 0});
     };
 
     return postsObj;
