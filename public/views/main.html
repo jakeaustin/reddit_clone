@@ -30,8 +30,13 @@
   </div>
   <div class="row">
     <h4> Comments </h4>
-    <ul ng-repeat="comment in post.comments" class="col-xs-6 col-xs-offset-3">
-      <li>{{comment.text}}</li>
+    <ul ng-repeat="comment in post.comments" class="col-xs-12 comment-list">
+    <li class="panel panel-default">
+        <div class="panel-heading"></div>
+        <div class="panel-body">
+          {{comment.text}}
+        </div>
+    </li>
     </ul>
   </div>
 </div>
