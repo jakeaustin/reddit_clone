@@ -1,8 +1,10 @@
 (function() {
   angular.module('reddit')
-  .controller('mainController', function($scope, Posts, $window, localStorageService) {
+  .controller('mainController', function($scope, Posts, commentOrderFilter, $window, localStorageService) {
 
     $scope.authData = localStorageService.get('authData');
+
+    $scope.commentOrder = commentOrderFilter;
 
     $scope.posts = Posts.posts;
     $scope.deletePost = function(post) {

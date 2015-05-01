@@ -5,7 +5,7 @@
 <a ng-if="!authData" href="/#/register">Login</a>
 <br><hr><br>
 
-<div ng-repeat="post in posts" class="container">
+<div ng-repeat="post in posts | orderBy:'-votes'" class="container">
   <hr>
   <div class="row">
     <div id="voteButtons" class="col-xs-1">
@@ -30,7 +30,7 @@
   </div>
   <div class="row">
     <h4> Comments </h4>
-    <ul ng-repeat="comment in post.comments" class="col-xs-12 comment-list">
+    <ul ng-repeat="comment in post.comments | commentOrder" class="col-xs-12 comment-list">
       <li class="panel panel-default">
       <div class="panel-heading">Username, time posted...</div>
         <div class="panel-body">
