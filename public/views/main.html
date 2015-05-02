@@ -1,8 +1,9 @@
-<div ng-if="authData">
-  <a ng-click="logout()">Logout</a>
+{{user}}
+<div ng-show="user">
+  <a href="#" ng-click="logout()">Logout</a>
   <a href="/#/post">New Post</a>
 </div>
-<a ng-if="!authData" href="/#/register">Login</a>
+<a ng-show="!user" href="/#/register">Sign Up</a>
 <br><hr><br>
 
 <div ng-repeat="post in posts | orderBy:'-votes'" class="panel panel-primary container">
@@ -22,10 +23,10 @@
       <div class="form-group">
         <input class="form-control" type="text" ng-model="comment.text"/>
       </div>
-      <button class="btn btn-lg btn-success" ng-disabled="!authData"ng-click="addComment(post, comment)">
+      <button class="btn btn-lg btn-success" ng-disabled="!user"ng-click="addComment(post, comment)">
         Add Comment
       </button>
-      <p ng-show="!authData">Login to share your voice!</p>
+      <p ng-show="!user">Login to share your voice!</p>
     </form>
   </div>
   <div class="row">

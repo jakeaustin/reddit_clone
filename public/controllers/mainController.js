@@ -1,8 +1,10 @@
 (function() {
   angular.module('reddit')
-  .controller('mainController', function($scope, Posts, commentOrderFilter, $window, localStorageService) {
+  .controller('mainController', function($scope, Posts, Auth, user, commentOrderFilter, $window, localStorageService) {
 
-    $scope.authData = localStorageService.get('authData');
+    $scope.user = user;
+
+    $scope.logout = Auth.logout;
 
     $scope.commentOrder = commentOrderFilter;
 
@@ -29,11 +31,6 @@
     $scope.downvoteComment = function(post, comment) {
       comment.votes -= 1;
       Posts.updatePost(post);
-    };
-    $scope.logout = function() {
-      localStorageService.remove('authData');
-      console.log("Logout successful!");
-      $window.location.href = '/#/register';
     };
   });
 })();
