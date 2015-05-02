@@ -14,5 +14,13 @@
         $scope.error = error.toString();
       });
     };
+
+    $scope.login = function() {
+      Auth.login($scope.returnUser).then(function() {
+        $window.location.href='/';
+      }, function(error) {
+        $scope.error = error.toString();
+      });
+    };
   });
 })();
