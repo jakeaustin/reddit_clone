@@ -11,7 +11,7 @@
           $window.location.href='/';
         });
       }, function(error) {
-        $scope.error = error.toString();
+        $scope.signupError = error.toString();
       });
     };
 
@@ -19,7 +19,7 @@
       Auth.login($scope.returnUser).then(function() {
         $window.location.href='/';
       }, function(error) {
-        $scope.error = error.toString();
+        $scope.loginError = error.toString();
       });
     };
   });
