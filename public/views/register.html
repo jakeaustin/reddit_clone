@@ -1,49 +1,31 @@
 <h2>Sign In</h2>
-<!--
-<div class="row">
-  <div class="col-md-6">
-    <form>
-      <h4>Email</h4>
-      <input type="text" ng-model="signInEmail" />
-      <h4>Password</h4>
-      <input type="password" ng-model="signInPassword"/>
 
-      <button class="btn btn-primary" ng-click="login(signInEmail, signInPassword)">Login</button>
-    </form>
-  </div> -->
+<div class="col-md-6">
+  <form ng-submit="register()">
+    <h2>New User?</h2>
 
-  <div class="col-md-6">
-    <form ng-submit="register()">
-      <h2>Register</h2>
+    <h4>Email</h4>
+    <input type="email" ng-model="user.email" />
 
-      <h4>Email</h4>
-      <input type="email" ng-model="user.email" />
+    <h4>Password</h4>
+    <input type="password" ng-model="user.password"/>
 
-      <h4>Password</h4>
-      <input type="password" ng-model="user.password"/>
+    <input type="submit" value="Sign Up" class="btn btn-primary"/>
+    <p>{{signupError}}</p>
+  </form>
+</div>
 
-      <input type="submit" value="Sign Up" class="btn btn-primary"/>
-      <p>{{signupError}}</p>
-    </form>
-  </div>
+<div class="col-md-6">
+  <form ng-submit="login()">
+    <h2>Login</h2>
 
-  <div class="col-md-6">
-    <form ng-submit="login()">
-      <h2>Login</h2>
+    <h4>Email</h4>
+    <input type="email" ng-model="returnUser.email" />
 
-      <h4>Email</h4>
-      <input type="email" ng-model="returnUser.email" />
+    <h4>Password</h4>
+    <input type="password" ng-model="returnUser.password"/>
 
-      <h4>Password</h4>
-      <input type="password" ng-model="returnUser.password"/>
-
-      <input type="submit" value="Log in" class="btn btn-primary"/>
-      {{loginError}}
-    </form>
-  </div>
-
-
-  <div ng-if="authData">
-    <button ng-click="logOut()">Logout</button>
-  </div>
+    <input type="submit" value="Login" class="btn btn-primary"/>
+    {{loginError}}
+  </form>
 </div>
