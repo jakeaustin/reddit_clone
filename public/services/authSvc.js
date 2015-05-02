@@ -6,12 +6,10 @@
 
     var Auth = {
       register: function (user) {
-        console.log("create user");
         return auth.$createUser(user.email, user.password);
       },
       //getting an error in the .then, but it appears to be working...
       login: function (user) {
-        console.log('login');
         return auth.$authWithPassword({
                                       email:user.email,
                                       password:user.password
