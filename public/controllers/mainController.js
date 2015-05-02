@@ -4,7 +4,10 @@
 
     $scope.user = user;
 
-    $scope.logout = Auth.logout;
+    $scope.logout = function() {
+      Auth.logout();
+      $window.location.href='/';
+    };
 
     $scope.commentOrder = commentOrderFilter;
 
