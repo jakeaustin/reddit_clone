@@ -1,6 +1,6 @@
 (function() {
   angular.module('reddit')
-  .factory('Auth', function ($firebaseAuth, FIREBASE_URI, $rootScope) {
+  .factory('Auth', function ($firebaseAuth, FIREBASE_URI) {
     var ref = new Firebase(FIREBASE_URI);
     var auth = $firebaseAuth(ref);
 
@@ -21,7 +21,6 @@
                                       }
                                       else {
                                         console.log("log in successful");
-                                        $rootScope.$broadcast('$firebaseAuth:authWithPassword', userData);
                                       }
                                   });
       },
