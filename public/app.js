@@ -11,11 +11,21 @@
     $routeProvider
     .when('/', {
       controller: 'mainController',
-      templateUrl:'/views/main.html'
+      templateUrl:'/views/main.html',
+      resolve: {
+        user: function(Auth) {
+          return Auth.resolveUser();
+        }
+      }
     })
     .when('/register', {
       controller: 'registerController',
-      templateUrl: '/views/register.html'
+      templateUrl: '/views/register.html',
+      resolve: {
+        user: function(Auth) {
+          return Auth.resolveUser();
+        }
+      }
     })
     .when('/post', {
       controller: 'postController',
