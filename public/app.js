@@ -29,7 +29,12 @@
     })
     .when('/post', {
       controller: 'postController',
-      templateUrl: '/views/newPost.html'
+      templateUrl: '/views/newPost.html',
+      resolve: {
+        user: function(Auth) {
+          return Auth.resolveUser();
+        }
+      }
     })
     .otherwise({
       redirectTo: '/'

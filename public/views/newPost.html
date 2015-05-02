@@ -1,4 +1,5 @@
-<form ng-if="authData" role="form">
+{{user}}
+<form ng-show="user" role="form">
   <div class="form-group">
     <label>Post Title</label>
     <input class="form-control" type="text" ng-model="post.title"/>
@@ -15,7 +16,7 @@
     Add Post
   </button>
 </form>
-<p ng-if="!authData">
+<p ng-show="!user">
   You must <a href="/#/register">Login</a> to make posts
 </p>
 

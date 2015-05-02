@@ -25,7 +25,7 @@
                                   });
       },
       logout: function () {
-        auth.$unauth();
+        return auth.$unauth();
       },
       resolveUser: function() {
         return auth.$getAuth();
