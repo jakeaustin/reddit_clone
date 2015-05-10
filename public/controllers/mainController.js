@@ -3,6 +3,7 @@
   .controller('mainController', function($scope, Posts, Auth, user, commentOrderFilter, $window, localStorageService) {
 
     $scope.user = user;
+    $scope.authUser = Auth.user;
 
     $scope.logout = function() {
       Auth.logout();

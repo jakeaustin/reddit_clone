@@ -1,6 +1,6 @@
 (function() {
   angular.module('reddit')
-  .factory('Auth', function ($firebase, $firebaseAuth, FIREBASE_URI) {
+  .factory('Auth', function ($firebase, $firebaseAuth, FIREBASE_URI, $rootScope) {
     var ref = new Firebase(FIREBASE_URI);
     var auth = $firebaseAuth(ref);
 
@@ -36,7 +36,19 @@
       resolveUser: function() {
         return auth.$getAuth();
       },
+      user: {}
     };
+
+    $rootScope.$on('$firebaseAuth:authWithPassword', function(e, user) {
+      console.log('logged in');
+      angular.copy(user, Auth.user);
+    });
+
+    $rootScope.$on('firebaseAuth:unauth', function() {
+      console.log('logged out');
+      angular.copy({}, Auth.user);
+    });
+
     return Auth;
   });
 })();
