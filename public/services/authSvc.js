@@ -11,7 +11,7 @@
       createProfile: function(user) {
         var profile = {
           username: user.username,
-          joined: new Date(),
+          joined: new Date().toString()
         };
         var profileRef = $firebase(ref.child('profile'));
         console.log(user.uid);
