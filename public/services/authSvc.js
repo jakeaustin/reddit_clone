@@ -1,6 +1,6 @@
 (function() {
   angular.module('reddit')
-  .factory('Auth', function ($firebaseAuth, FIREBASE_URI) {
+  .factory('Auth', function ($firebase, $firebaseAuth, FIREBASE_URI) {
     var ref = new Firebase(FIREBASE_URI);
     var auth = $firebaseAuth(ref);
 
@@ -8,19 +8,27 @@
       register: function (user) {
         return auth.$createUser(user.email, user.password);
       },
-      //getting an error in the .then, but it appears to be working...
+      createProfile: function(user) {
+        var profile = {
+          username: user.username,
+          joined: new Date(),
+        };
+        var profileRef = $firebase(ref.child('profile'));
+        console.log(user.uid);
+        return profileRef.$set(user.uid, profile);
+      },
       login: function (user) {
         return auth.$authWithPassword({
-                                      email:user.email,
-                                      password:user.password
-                                    }).then(function(error, userData) {
-                                      if(error) {
-                                        console.log("error logging in :" + userData);
-                                      }
-                                      else {
-                                        console.log("log in successful");
-                                      }
-                                  });
+          email:user.email,
+          password:user.password,
+        }, function(error, userData) {
+          if(error) {
+            console.log("error logging in :" + error);
+          }
+          else {
+            console.log("log in successful");
+          }
+        });
       },
       logout: function () {
         return auth.$unauth();

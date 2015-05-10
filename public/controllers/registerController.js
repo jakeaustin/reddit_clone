@@ -7,7 +7,10 @@
 
     $scope.register = function() {
       Auth.register($scope.user).then(function() {
-        return Auth.login($scope.user).then(function() {
+        return Auth.login($scope.user).then(function(user) {
+          user.username = $scope.user.username;
+          return Auth.createProfile(user);
+        }).then(function() {
           $window.location.href='/';
         });
       }, function(error) {
