@@ -1,11 +1,11 @@
 (function() {
   angular.module('reddit')
-  .controller('mainController', function($scope, Posts, Auth, user, commentOrderFilter, $window) {
+  .controller('mainController', function($scope, Posts, Auth, user, commentOrderFilter, $window, $cookies) {
 
     $scope.posts = Posts.posts;
 
     $scope.user = user;
-    $scope.user = Auth.currentUser();
+    $scope.currentUser = Auth.currentUser();
 
     $scope.commentOrder = commentOrderFilter;
 

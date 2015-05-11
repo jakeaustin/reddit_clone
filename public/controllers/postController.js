@@ -5,7 +5,7 @@
     $scope.user = Auth.currentUser();
 
     $scope.savePost = function(post) {
-      Posts.savePost(post.title, post.desc, post.url, $scope.user.username);
+      Posts.savePost(post.title, post.desc, post.url, $scope.user.username, $scope.user.$id);
       post.title = '';
       post.desc = '';
       post.url = '';

@@ -7,13 +7,14 @@
     var postsObj = {};
 
     postsObj.posts = posts;
-    postsObj.savePost = function(title, desc, url, username) {
+    postsObj.savePost = function(title, desc, url, username, uid) {
       this.posts.$add({
         title: title,
         desc: desc,
         url: url,
         createdAt: new Date().toString(),
         author: username,
+        authorUID: uid,
         votes: 0,
         comments: []
       });
