@@ -1,12 +1,13 @@
 (function() {
   angular.module('reddit')
-  .controller('mainController', function($scope, Posts, Auth, user, commentOrderFilter, $window, localStorageService) {
+  .controller('mainController', function($scope, Posts, Auth, user, commentOrderFilter, $window, $cookies) {
 
     $scope.user = user;
-    $scope.authUser = Auth.user;
+    $scope.cookieUser = $cookies.currentUser;
 
     $scope.logout = function() {
       Auth.logout();
+      $cookies.currentUser = null;
       $window.location.href='/';
     };
 

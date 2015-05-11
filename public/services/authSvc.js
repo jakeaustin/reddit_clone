@@ -14,7 +14,6 @@
           joined: new Date().toString()
         };
         var profileRef = $firebase(ref.child('profile'));
-        console.log(user.uid);
         return profileRef.$set(user.uid, profile);
       },
       login: function (user) {
@@ -38,16 +37,6 @@
       },
       user: {}
     };
-
-    $rootScope.$on('$firebaseAuth:authWithPassword', function(e, user) {
-      console.log('logged in');
-      angular.copy(user, Auth.user);
-    });
-
-    $rootScope.$on('firebaseAuth:unauth', function() {
-      console.log('logged out');
-      angular.copy({}, Auth.user);
-    });
 
     return Auth;
   });
