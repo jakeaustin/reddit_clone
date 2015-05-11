@@ -1,6 +1,6 @@
 (function() {
   angular.module('reddit')
-  .controller('postController', function($scope, Posts, Auth, user, $window, localStorageService) {
+  .controller('postController', function($scope, Posts, Auth, user, $window) {
     $scope.user = user;
     $scope.savePost = function(post) {
       Posts.savePost(post.title, post.desc, post.url);
