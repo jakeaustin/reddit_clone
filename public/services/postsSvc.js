@@ -25,12 +25,12 @@
     postsObj.deletePost = function(post) {
       this.posts.$remove(post);
     };
-    postsObj.addComment = function(post, comment) {
+    postsObj.addComment = function(post, comment, username, uid) {
       var ref = new Firebase(FIREBASE_URI + '/' + post.$id + '/comments');
       var sync = $firebase(ref);
 
       this.comments = sync.$asArray();
-      this.comments.$add({text: comment.text, votes: 0});
+      this.comments.$add({text: comment.text, author: username, authorUID: uid, createdAt: new Date().toString(), votes: 0});
     };
 
     return postsObj;

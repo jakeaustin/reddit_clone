@@ -37,7 +37,7 @@
     </h4>
     <ul ng-show="showComments" ng-repeat="comment in post.comments | commentOrder" class="col-xs-12 comment-list">
       <li class="panel panel-default">
-      <div class="panel-heading">Username, time posted...</div>
+      <div class="panel-heading">{{comment.author}} @ {{comment.createdAt}}</div>
         <div class="panel-body">
           <div id="voteButtons" class="col-xs-1">
             <button class="btn btn-sm btn-warning" ng-click="upvoteComment(post, comment)">^</button>
