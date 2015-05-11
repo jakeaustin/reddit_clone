@@ -4,6 +4,7 @@
 
     $scope.user = user;
     $scope.cookieUser = $cookies.currentUser;
+    $scope.username = Auth.userProf();
 
     $scope.logout = function() {
       Auth.logout();

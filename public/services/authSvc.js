@@ -1,6 +1,6 @@
 (function() {
   angular.module('reddit')
-  .factory('Auth', function ($firebase, $firebaseAuth, FIREBASE_URI, $rootScope) {
+  .factory('Auth', function ($firebase, $firebaseAuth, FIREBASE_URI, $cookies) {
     var ref = new Firebase(FIREBASE_URI);
     var auth = $firebaseAuth(ref);
 
@@ -34,6 +34,9 @@
       },
       resolveUser: function() {
         return auth.$getAuth();
+      },
+      userProf: function() {
+        return $firebase(ref.child('profile').child($cookies.currentUser)).$asObject();
       },
       user: {}
     };
