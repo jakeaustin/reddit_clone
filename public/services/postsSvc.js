@@ -1,17 +1,19 @@
 (function() {
   angular.module('reddit')
-  .factory('Posts', function($firebase, FIREBASE_URI) {
+  .factory('Posts', function($firebase, FIREBASE_URI, Auth) {
     var ref = new Firebase(FIREBASE_URI);
     var posts = $firebase(ref).$asArray();
 
     var postsObj = {};
 
     postsObj.posts = posts;
-    postsObj.savePost = function(title, desc, url) {
+    postsObj.savePost = function(title, desc, url, username) {
       this.posts.$add({
         title: title,
         desc: desc,
         url: url,
+        createdAt: new Date().toString(),
+        author: username,
         votes: 0,
         comments: []
       });

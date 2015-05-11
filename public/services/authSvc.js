@@ -35,10 +35,9 @@
       resolveUser: function() {
         return auth.$getAuth();
       },
-      userProf: function() {
+      currentUser: function() {
         return $firebase(ref.child('profile').child($cookies.currentUser)).$asObject();
       },
-      user: {}
     };
 
     return Auth;
