@@ -1,20 +1,19 @@
 (function() {
   angular.module('reddit')
-  .controller('mainController', function($scope, Posts, Auth, user, commentOrderFilter, $window, $cookies) {
+  .controller('mainController', function($scope, Posts, Auth, user, commentOrderFilter, $window) {
+
+    $scope.posts = Posts.posts;
 
     $scope.user = user;
-    $scope.cookieUser = $cookies.currentUser;
-    $scope.username = Auth.userProf();
+    $scope.user = Auth.currentUser();
+
+    $scope.commentOrder = commentOrderFilter;
 
     $scope.logout = function() {
       Auth.logout();
       $cookies.currentUser = null;
       $window.location.href='/';
     };
-
-    $scope.commentOrder = commentOrderFilter;
-
-    $scope.posts = Posts.posts;
     $scope.deletePost = function(post) {
       Posts.deletePost(post);
     };
