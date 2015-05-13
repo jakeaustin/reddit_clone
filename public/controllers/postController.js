@@ -9,7 +9,7 @@
       return Posts.savePost(post.title, post.desc, post.url, $scope.user.username, $scope.user.$id)
       .then(function(postRef) {
         console.log('savePost postRef = ' + postRef);
-        Posts.userPost($scope.user.uid, postRef);
+        Posts.userPost(postRef);
         post.title = '';
         post.desc = '';
         post.url = '';

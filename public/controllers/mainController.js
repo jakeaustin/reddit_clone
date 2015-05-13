@@ -26,7 +26,10 @@
       Posts.updatePost(post);
     };
     $scope.addComment = function(post, comment) {
-      Posts.addComment(post, comment, $scope.currentUser.username, $scope.currentUser.$id);
+      Posts.addComment(post, comment, $scope.currentUser.username, $scope.currentUser.$id)
+      .then(function(commentRef) {
+        Posts.userComment(commentRef);
+      });
       comment.text = '';
     };
     $scope.upvoteComment = function(post, comment) {

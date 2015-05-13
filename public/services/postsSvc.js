@@ -6,6 +6,7 @@
     var user = Auth.currentUser();
     var id = user.$id;
     var user_posts = $firebase(ref.child('user_posts').child(id)).$asArray();
+    var user_comments = $firebase(ref.child('user_comments').child(id)).$asArray();
 
     var postsObj = {};
 
@@ -22,7 +23,7 @@
         comments: []
       });
     };
-    postsObj.userPost = function(uid, postRef) {
+    postsObj.userPost = function(postRef) {
       user_posts.$add(postRef.key());
     };
     postsObj.updatePost = function(post) {
@@ -36,7 +37,11 @@
       var sync = $firebase(ref);
 
       this.comments = sync.$asArray();
-      this.comments.$add({text: comment.text, author: username, authorUID: uid, createdAt: new Date().toString(), votes: 0});
+      return this.comments.$add({text: comment.text, author: username, authorUID: uid, postID: post.$id, createdAt: new Date().toString(), votes: 0});
+    };
+    postsObj.userComment = function(comment) {
+      console.log('userComment comment = ' + comment);
+      user_comments.$add({commendID: comment.key(), postID: comment.parent().parent().key()});
     };
 
     return postsObj;
