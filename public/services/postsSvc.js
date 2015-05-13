@@ -49,7 +49,7 @@
     };
     postsObj.userComment = function(comment) {
       console.log('userComment comment = ' + comment);
-      user_comments.$add({commendID: comment.key(), postID: comment.parent().parent().key()});
+      user_comments.$add({commentID: comment.key(), postID: comment.parent().parent().key()});
     };
 
     return postsObj;
