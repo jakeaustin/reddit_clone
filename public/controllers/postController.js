@@ -6,11 +6,15 @@
     $scope.user = Auth.currentUser();
 
     $scope.savePost = function(post) {
-      Posts.savePost(post.title, post.desc, post.url, $scope.user.username, $scope.user.$id);
-      post.title = '';
-      post.desc = '';
-      post.url = '';
-      $window.location.href='/';
+      return Posts.savePost(post.title, post.desc, post.url, $scope.user.username, $scope.user.$id)
+      .then(function(postRef) {
+        console.log('savePost postRef = ' + postRef);
+        Posts.userPost($scope.user.uid, postRef);
+        post.title = '';
+        post.desc = '';
+        post.url = '';
+        $window.location.href='/';
+      });
     };
   });
 })();
