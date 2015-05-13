@@ -36,6 +36,15 @@
         }
       }
     })
+    .when('/users/:userId', {
+      controller: 'profileController',
+      templateUrl: '/views/userProfile.html',
+      resolve: {
+        user: function(Auth) {
+          return Auth.resolveUser();
+        }
+      }
+    })
     .otherwise({
       redirectTo: '/'
     });
