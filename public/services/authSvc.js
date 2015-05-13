@@ -16,12 +16,6 @@
         var profileRef = $firebase(ref.child('profile'));
         return profileRef.$set(user.uid, profile);
       },
-      createUserPosts: function(user) {
-        console.log('create user posts user = ' + user.uid);
-        var emptyPosts = {username: user.username, posts: []};
-        var userPostsRef = $firebase(ref.child('user_posts'));
-        return userPostsRef.$set(user.uid, emptyPosts);
-      },
       login: function (user) {
         return auth.$authWithPassword({
           email:user.email,

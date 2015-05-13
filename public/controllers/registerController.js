@@ -10,7 +10,6 @@
         return Auth.login($scope.user).then(function(user) {
           $cookies.currentUser = user.uid;
           user.username = $scope.user.username;
-          Auth.createUserPosts(user);
           return Auth.createProfile(user);
         }).then(function() {
           $window.location.href='/';
