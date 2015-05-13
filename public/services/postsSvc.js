@@ -23,6 +23,14 @@
         comments: []
       });
     };
+    postsObj.get = function(post) {
+      var postRef = new Firebase(FIREBASE_URI + '/posts/' + post);
+      var refSnapshot;
+      postRef.once('value', function(data) {
+        refSnapshot = data.val();
+      });
+      return refSnapshot;
+    };
     postsObj.userPost = function(postRef) {
       user_posts.$add(postRef.key());
     };
