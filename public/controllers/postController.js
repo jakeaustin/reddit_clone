@@ -1,7 +1,8 @@
 (function() {
   angular.module('reddit')
   .controller('postController', function($scope, Posts, Auth, user, $window) {
-    $scope.user = user;
+
+    $scope.signedIn = user;
     $scope.user = Auth.currentUser();
 
     $scope.savePost = function(post) {

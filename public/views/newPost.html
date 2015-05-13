@@ -1,7 +1,7 @@
 {{user}}
 <br>
 {{username}}
-<form ng-show="user" role="form">
+<form ng-show="signedIn" role="form">
   <div class="form-group">
     <label>Post Title</label>
     <input class="form-control" type="text" ng-model="post.title"/>
@@ -18,7 +18,7 @@
     Add Post
   </button>
 </form>
-<p ng-show="!user">
+<p ng-show="!signedIn">
   You must <a href="/#/register">Login</a> to make posts
 </p>
 

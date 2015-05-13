@@ -4,7 +4,7 @@
 
     $scope.posts = Posts.posts;
 
-    $scope.user = user;
+    $scope.signedIn = user;
     $scope.currentUser = Auth.currentUser();
 
     $scope.commentOrder = commentOrderFilter;
