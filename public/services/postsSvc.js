@@ -2,7 +2,7 @@
   angular.module('reddit')
   .factory('Posts', function($firebase, FIREBASE_URI, Auth) {
     var ref = new Firebase(FIREBASE_URI);
-    var posts = $firebase(ref).$asArray();
+    var posts = $firebase(ref.child('posts')).$asArray();
 
     var postsObj = {};
 
