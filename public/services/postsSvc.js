@@ -51,7 +51,15 @@
       console.log('userComment comment = ' + comment);
       user_comments.$add({commentID: comment.key(), postID: comment.parent().parent().key()});
     };
-
+    postsObj.getComment = function(post, comment) {
+      var postRef = new Firebase(FIREBASE_URI + '/posts/' + post);
+      var commentRef = postRef.child('comments').child(comment);
+      var refSnapshot;
+      commentRef.once('value', function(data) {
+        refSnapshot = data.val();
+      });
+      return refSnapshot;
+    };
     return postsObj;
   });
 })();

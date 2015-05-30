@@ -22,8 +22,19 @@
         });
         return defer.promise;
       },
-      getPostComments: function(userId) {
-
+      getComments: function(userId) {
+        var defer = $q.defer();
+        $firebase(ref.child('user_comments').child(userId))
+        .$asArray()
+        .$loaded()
+        .then(function(data) {
+          var userComments = {};
+          for(var i=0; i<data.length; i++) {
+            userComments[i] = Posts.getComment(data[i].postID, data[i].commentID);
+          }
+          defer.resolve(userComments);
+        });
+        return defer.promise;
       }
     };
     return profile;

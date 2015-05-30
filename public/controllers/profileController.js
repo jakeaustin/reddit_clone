@@ -6,5 +6,8 @@
     Profile.getPosts(uid).then(function(posts) {
       $scope.posts = posts;
     });
+    Profile.getComments(uid).then(function(comments) {
+      $scope.comments = comments;
+    });
   });
 })();
